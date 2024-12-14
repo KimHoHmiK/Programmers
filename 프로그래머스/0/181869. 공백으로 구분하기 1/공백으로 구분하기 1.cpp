@@ -1,19 +1,8 @@
-#include <string>
-#include <vector>
-
+#include <bits/stdc++.h>
 using namespace std;
 
 vector<string> solution(string my_string) {
-    vector<string> answer;
-    string word;
-    for(auto item : my_string){
-        if(item != ' '){
-            word+=item;
-        }else{
-            answer.push_back(word);
-            word.clear();
-        }
-    }
-    answer.push_back(word);
-    return answer;
+    regex rx(" ");
+    sregex_token_iterator iter(my_string.begin(), my_string.end(), rx, -1), end;
+    return {iter, end};
 }
