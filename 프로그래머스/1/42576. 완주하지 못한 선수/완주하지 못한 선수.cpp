@@ -6,28 +6,13 @@ using namespace std;
 
 string solution(vector<string> participant, vector<string> completion) {
     string answer = "";
-    map<string,bool> a;
-    for(string item : participant)
+    sort(participant.begin(),participant.end());
+    sort(completion.begin(), completion.end());
+    for(int i = 0; i<completion.size(); i++)
     {
-        auto key = a.find(item);
-        if(key != a.end()){
-            key->second = !key->second;
-        }
-        else{
-            a.insert(make_pair(item, false));
-        }
+        if(participant[i] != completion[i])
+            return participant[i];
     }
-    for(string item : completion)
-    {
-        auto key = a.find(item);
-        if(key != a.end()){
-            key->second = !key->second;
-        }
-    }
-    for(const auto& pair : a){
-        if(pair.second == false){
-            answer = pair.first;
-        }
-    }
-    return answer;
+    
+    return participant[participant.size()-1];
 }
