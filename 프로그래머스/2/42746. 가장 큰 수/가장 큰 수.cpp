@@ -4,7 +4,7 @@
 using namespace std;
 
 bool comp(string a, string b) {
-    return (a + b) > (b + a) ? true : false;
+    return (a + b) > (b + a);
 }
 
 string solution(vector<int> numbers) {
