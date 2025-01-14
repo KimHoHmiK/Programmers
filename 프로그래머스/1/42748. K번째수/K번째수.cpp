@@ -12,7 +12,7 @@ vector<int> solution(vector<int> array, vector<vector<int>> commands) {
             temp.push_back(array[j-1]);
         }
         sort(temp.begin(), temp.end());
-        answer.push_back(temp[commands[i][2] -1 ]);
+        answer.push_back(temp[commands[i][commands[i].size()-1] -1 ]);
         temp.clear();
     }
     return answer;
